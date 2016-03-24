@@ -1,8 +1,30 @@
-# Hexapod
-A project to build a hexapod robot for environmental monitoring.
+# Ecological Surveillance Robot (ESR)
 
-# Objective
+The objective of this project is to build a robot for environmental monitoring.
+Since the robot will need to move on different kind of terrains, a hexapod seems
+to be the most appropriate format for the robot structure. The project will be
+developed using cheap hardware and sensors, because we have a limited budget. An
+arduino board will control the system and small servo motors will be used to
+drive the legs. The mechanical structure will be made of polyethylene, that is
+light, cheap but strong enough.
 
-BOM (Bill of Materials):
-* Servo Motors
+
+# BOM (Bill of Materials):
 * Arduino
+* Servo Motors (12 pcs)
+* (Sensors ...)
+
+
+# References 
+
+* https://www.arduino.cc/ 
+
+# Disclaimer
+
+This project is been developed in [Polytechnic Institute of Rio de Janeiro](http://www.iprj.uerj.br/). It
+started as the a final project of a student (Luccas Beck Reis), requirement for
+the degree in Computer Engineering. Collaborators and suggestions are all
+wellcome.
+Our team: 
+* [Luccas Beck Reis](https://github.com/LuccasBeckReis) - Student
+* [Angelo Mondaini Calvão](https://github.com/oangelo) - Advisor
