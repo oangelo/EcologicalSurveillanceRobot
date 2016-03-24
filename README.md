@@ -22,9 +22,11 @@ light, cheap but strong enough.
 # Disclaimer
 
 This project is been developed in [Polytechnic Institute of Rio de Janeiro](http://www.iprj.uerj.br/). It
-started as the a final project of a student (Luccas Beck Reis), requirement for
+started as the a final project of a student [Luccas Beck Reis](https://github.com/LuccasBeckReis), requirement for
 the degree in Computer Engineering. Collaborators and suggestions are all
 wellcome.
-Our team: 
+
+# Team: 
+
 * [Luccas Beck Reis](https://github.com/LuccasBeckReis) - Student
 * [Angelo Mondaini Calvão](https://github.com/oangelo) - Advisor
