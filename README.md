@@ -15,9 +15,21 @@ consumption devices.
 
 # BOM (Bill of Materials):
 * Arduino
-* Servo Motors (12 pcs)
+* Servo Motors (18 pcs)
+* GPS (GY-NEO6MV2)
 * (Sensors ...)
 
+# Functionalities
+
+List of functionalities the robot will have
+
+## Trip plan
+
+The robot must gather interesting data about the environment, to do that, it
+must walk around the region of interest. To be able to follow a predefined path,
+the robot must have access to a gps in order to be able to locate himself in
+space. Through a user interface, the path of the robot can be set by the user on
+a map.
 
 # References 
 
