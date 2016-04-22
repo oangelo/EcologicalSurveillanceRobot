@@ -4,7 +4,11 @@ from PyQt4.QtGui import *
 from PyQt4.QtWebKit import *
 #https://www.reddit.com/r/learnpython/comments/2ldevz/python_gui_with_google_maps/
 
-maphtml = '''
+
+center_lat = -22.2809192
+center_lng = -42.6030002
+
+maphtml = """ 
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,7 +23,7 @@ maphtml = '''
     <script>
       function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng(37.5, -122.2),
+          center: new google.maps.LatLng("""+str(center_lat)+","+str(center_lng)+""" ),
           zoom: 10,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -57,7 +61,7 @@ maphtml = '''
     <div id="map-canvas"></div>
   </body>
 </html>
-'''
+"""
 
 class Browser(QApplication):
     def __init__(self):
@@ -86,3 +90,4 @@ class Browser(QApplication):
         self.text.append("Point #{} ({}, {})".format(i, lat, lng))
 
 Browser()
+
