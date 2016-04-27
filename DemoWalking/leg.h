@@ -1,16 +1,18 @@
 #ifndef LEG_H
 #define LEG_H 
 
+#include "servo.h"
+
 class Leg(){
     public:
-        Leg(int motor1, int motor2, int motor3);
-        set_vel(float velocity);
-        step_height(float height);
-        step_length(float angle);
+        Leg(int p_shoulder, int p_middle, int p_bottom);
+        set_spd(float speed);
+        set_height(float height);
+        set_length(float angle);
         Step();
     private:
-        int motor1, motor2, motor3;
-        float height, angle; 
+        float height, angle, speed; 
+	Servo m_shoulder, m_middle, m_bottom;
 }
 
 #endif /* LEG_H */
