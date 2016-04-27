@@ -1,7 +1,7 @@
 #ifndef LEG_H
 #define LEG_H 
 
-#include "servo.h"
+#include <servo.h>
 
 class Leg(){
     public:
