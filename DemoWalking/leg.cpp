@@ -20,11 +20,11 @@ Leg::set_length(float length){
 }
 
 Leg::Step(){
-	m_middle.write(acos(height/7.6));
+	m_middle.write(height);
 	delay(speed);
 	m_shoulder.write(length);
 	delay(speed);
-	m_middle.write(acos(height/7.6));
+	m_middle.write(height);
 	delay(speed);
 	m_shoulder.write(speed);
 	delay(speed);

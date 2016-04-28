@@ -1,7 +1,8 @@
 #ifndef LEG_H
 #define LEG_H 
 
-#include <servo.h>
+#include "servo.h"
+#include "arduino.h" 
 
 class Leg(){
     public:
