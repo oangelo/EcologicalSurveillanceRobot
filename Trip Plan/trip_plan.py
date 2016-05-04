@@ -76,9 +76,13 @@ class Browser(QApplication):
 
         self.text = QTextEdit(self.window)
 
+        self.button = QPushButton('Save')
+        self.button.clicked.connect(self.save)
+
         self.layout = QVBoxLayout(self.window)
         self.layout.addWidget(self.web)
         self.layout.addWidget(self.text)
+        self.layout.addWidget(self.button)
 
         self.window.show()
         self.exec_()
@@ -87,7 +91,14 @@ class Browser(QApplication):
     def polygoncomplete(self, lat, lng, i):
         if i == 0:
             self.text.clear()
-        self.text.append("Point #{} ({}, {})".format(i, lat, lng))
+        self.text.append("{} ({}, {})".format(i, lat, lng))
+
+    def save(self):
+        file_name = QFileDialog.getSaveFileName(self.window, "Save file", ".trip", ".trip")
+        print(file_name)
+        f = open(file_name,"w")
+        f.write(self.text.toPlainText())
+        f.close()
 
 Browser()
 
