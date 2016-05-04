@@ -11,9 +11,10 @@ class Leg{
         void set_height(float height);
         void set_length(float angle);
         void Step();
+        void Init();
     private:
-        float height, angle, speed;
-	       Servo m_shoulder, m_middle, m_bottom;
+        float height, angle, speed, length;
+        Servo m_shoulder, m_middle, m_bottom;
 };
 
 #endif /* LEG_H */
