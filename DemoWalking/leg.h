@@ -1,19 +1,19 @@
 #ifndef LEG_H
-#define LEG_H 
+#define LEG_H
 
-#include "servo.h"
-#include "arduino.h" 
+#include <Servo.h>
+#include <Arduino.h>
 
-class Leg(){
+class Leg{
     public:
         Leg(int p_shoulder, int p_middle, int p_bottom);
-        set_spd(float speed);
-        set_height(float height);
-        set_length(float angle);
-        Step();
+        void set_spd(float speed);
+        void set_height(float height);
+        void set_length(float angle);
+        void Step();
     private:
-        float height, angle, speed; 
-	Servo m_shoulder, m_middle, m_bottom;
-}
+        float height, angle, speed;
+	       Servo m_shoulder, m_middle, m_bottom;
+};
 
 #endif /* LEG_H */
