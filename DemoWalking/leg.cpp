@@ -1,7 +1,9 @@
 #include "leg.h"
 #include <math.h>
 
-Leg::Leg(int p_shoulder, int p_middle, int p_bottom):m_shoulder(),m_middle(),m_bottom(){
+Leg::Leg(int p_shoulder, int p_middle, int p_bottom):
+height(15), length(150), angle(0), speed(200), m_shoulder(),m_middle(),m_bottom()
+{
 	m_shoulder.attach(p_shoulder);
 	m_middle.attach(p_middle);
 	m_bottom.attach(p_bottom);

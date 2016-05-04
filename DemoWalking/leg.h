@@ -13,7 +13,7 @@ class Leg{
         void Step();
         void Init();
     private:
-        float height, angle, speed, length;
+        float height, length, angle, speed;
         Servo m_shoulder, m_middle, m_bottom;
 };
 
