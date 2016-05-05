@@ -8,7 +8,7 @@ from PyQt4.QtWebKit import *
 center_lat = -22.2809192
 center_lng = -42.6030002
 
-maphtml = """ 
+maphtml = """
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,7 +24,7 @@ maphtml = """
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng("""+str(center_lat)+","+str(center_lng)+""" ),
-          zoom: 10,
+          zoom: 60,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -44,7 +44,7 @@ maphtml = """
         var thePolygon = null;
 
         google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
-          if (thePolygon) 
+          if (thePolygon)
             thePolygon.setMap(null);
           thePolygon = polygon;
           polygon.getPath().forEach(function (xy, i) {
@@ -67,19 +67,34 @@ class Browser(QApplication):
     def __init__(self):
         QApplication.__init__(self, [])
         self.window = QWidget()
-        self.window.setWindowTitle("Google Google Maps Maps");
+        self.window.setWindowTitle("Hexapod Tracker");
 
         self.web = QWebView(self.window)
-        self.web.setMinimumSize(800,800)
+        self.web.setMinimumSize(800,600)
         self.web.page().mainFrame().addToJavaScriptWindowObject('self', self)
         self.web.setHtml(maphtml)
 
         self.text = QTextEdit(self.window)
 
+        self.lbllat = QLabel(self.window)
+        self.lbllat.setText("Latitude: ")
+        self.edtlat = QLineEdit(self.window)
+
+        self.lbllon = QLabel(self.window)
+        self.lbllon.setText("Longitude: ")
+        self.edtlon = QLineEdit(self.window)
+
         self.button = QPushButton('Save')
         self.button.clicked.connect(self.save)
 
+        self.centerbutton = QPushButton('Center on screen')
+
         self.layout = QVBoxLayout(self.window)
+        self.layout.addWidget(self.lbllat)
+        self.layout.addWidget(self.edtlat)
+        self.layout.addWidget(self.lbllon)
+        self.layout.addWidget(self.edtlon)
+        self.layout.addWidget(self.centerbutton)
         self.layout.addWidget(self.web)
         self.layout.addWidget(self.text)
         self.layout.addWidget(self.button)
@@ -101,4 +116,3 @@ class Browser(QApplication):
         f.close()
 
 Browser()
-
