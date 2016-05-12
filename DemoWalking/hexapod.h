@@ -9,5 +9,7 @@ class Hexapod{
       Hexapod(Leg first_left, Leg second_left, Leg third_left, Leg first_right, Leg second_right, Leg third_right);
       void Init();
   private:
-      
-}
+      Leg[6];
+};
+
+#endif
