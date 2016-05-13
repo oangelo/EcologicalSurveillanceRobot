@@ -1,12 +1,16 @@
 #include "leg.h"
 #include <math.h>
 
-Leg::Leg(int p_shoulder, int p_middle, int p_bottom):
-height(15), length(150), angle(0), speed(200), m_shoulder(),m_middle(),m_bottom()
+Leg::Leg(int p_coxa, int p_femur, int p_tibia):
+height(2), length(2), speed(200), coxa_angle(90), coxa(), femur(), tibia()
 {
-	m_shoulder.attach(p_shoulder);
-	m_middle.attach(p_middle);
-	m_bottom.attach(p_bottom);
+	set_angles(this->height, this->length);
+
+	coxa.attach(p_coxa);
+	femur.attach(p_femur);
+	tibia.attach(p_tibia);
+
+	move();
 }
 
 void Leg::set_spd(float speed){
@@ -15,20 +19,42 @@ void Leg::set_spd(float speed){
 
 void Leg::set_height(float height){
 	this->height = height;
+	set_angles(this->length, this->height);
 }
 
-void Leg::set_length(float angle){
-	this->length = angle;
+void Leg::set_angles(float length, float height)
+{
+	//Both l1 and l2 are the leg's length//
+	float theta1, theta2, l1, l2;
+
+	l1 = 2;
+	l2 = 2;
+
+	theta1 = pi/2 +(sqrt(pow(l2,2.0) - pow(x,2.0) +2*x*l1-pow(l1,2.0)) - y) / l1;
+	theta2 = asin((x - l1)/l2);
+
+	theta1 = theta1*180/M_PI;
+	theta2 = theta2*180/M_PI;
+
+	this->femur_angle = theta1;
+	this->tibia_angle = theta2;
 }
 
-void Leg::Step(){
-    delay(speed);
-	m_middle.write(height);
-	delay(speed);
-	m_shoulder.write(length);
-	delay(speed);
-	m_middle.write(10);
-	delay(speed);
-	m_shoulder.write(10);
-	delay(speed);
+void Leg::set_coxa_angle(float coxa_angle)
+{
+	this->coxa_angle = coxa_angle;
+}
+
+void Leg::set_length(float length){
+	this->length = length;
+	set_angles(this->length, this->height);
+}
+
+void Leg::move(){
+  femur.write(femur_angle);
+	tibia.write(tibia_angle);
+	coxa.write(coxa_angle);
+	Serial.println(coxa_angle);
+	Serial.println(tibia_angle);
+	Serial.println(femur_angle);
 }

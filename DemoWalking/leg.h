@@ -6,15 +6,18 @@
 
 class Leg{
     public:
-        Leg(int p_shoulder, int p_middle, int p_bottom);
+        Leg(int p_coxa, int p_femur, int p_tibia);
         void set_spd(float speed);
         void set_height(float height);
-        void set_length(float angle);
-        void Step();
+        void set_length(float length);
+        void set_coxa_angle(float coxa_angle);
+        void move();
         void Init();
     private:
-        float height, length, angle, speed;
-        Servo m_shoulder, m_middle, m_bottom;
+        void set_angles(float length, float height);
+        float height, length, speed,
+              femur_angle, tibia_angle, coxa_angle;
+        Servo coxa, femur, tibia;
 };
 
 #endif /* LEG_H */
