@@ -2,7 +2,7 @@
 #include <math.h>
 
 Leg::Leg(int p_coxa, int p_femur, int p_tibia):
-height(2), length(2), speed(200), coxa_angle(90), coxa(), femur(), tibia()
+height(90), length(90), speed(200), coxa_angle(90), coxa(), femur(), tibia()
 {
 	set_angles(this->height, this->length);
 
@@ -26,15 +26,10 @@ void Leg::set_angles(float length, float height)
 {
 	//Both l1 and l2 are the leg's length//
 	float theta1, theta2, l1, l2;
-
-	l1 = 2;
-	l2 = 2;
-
-	theta1 = pi/2 +(sqrt(pow(l2,2.0) - pow(x,2.0) +2*x*l1-pow(l1,2.0)) - y) / l1;
+  float x = length;
+  float y = height;
+	theta1 = M_PI/2 +(sqrt(pow(l2,2.0) - pow(x,2.0) +2*x*l1-pow(l1,2.0)) - y) / l1;
 	theta2 = asin((x - l1)/l2);
-
-	theta1 = theta1*180/M_PI;
-	theta2 = theta2*180/M_PI;
 
 	this->femur_angle = theta1;
 	this->tibia_angle = theta2;
@@ -54,7 +49,4 @@ void Leg::move(){
   femur.write(femur_angle);
 	tibia.write(tibia_angle);
 	coxa.write(coxa_angle);
-	Serial.println(coxa_angle);
-	Serial.println(tibia_angle);
-	Serial.println(femur_angle);
 }
