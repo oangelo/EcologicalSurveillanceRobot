@@ -1,14 +1,16 @@
-#include "leg.h" 
+#include "leg.h"
 
 Leg* leg;
 
-void setup(){
+void setup()
+{
     leg = new Leg(2,3,4);
-    leg->set_spd(100);
-    leg->set_height(170);
-    leg->set_length(170);
+    //leg->set_spd(100);
+    //leg->set_height(2);
+    //leg->set_length(2.5);
+    //leg->set_coxa_angle(70);
 }
 
-void loop(){
-    leg->Step();
+void loop()
+{
 }
