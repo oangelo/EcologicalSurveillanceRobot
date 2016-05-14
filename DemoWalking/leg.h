@@ -11,7 +11,7 @@ class Leg{
         void set_height(float height);
         void set_length(float length);
         void set_coxa_angle(float coxa_angle);
-        void move();
+        void Move();
         void Init();
     private:
         void set_angles(float length, float height);

@@ -1,53 +1,62 @@
 #include "hexapod.h"
 
-void Hexapod::set_leg_first_left(int coxa, int femur, int tibia)
+void Hexapod::set_leg_first_left(int p_coxa, int p_femur, int p_tibia)
 {
-    coxa_first_left = coxa;
-    femur_first_left = femur;
-    tibia_first_left = tibia;
+    p_coxa_first_left = 2;
+    p_femur_first_left = 3;
+    p_tibia_first_left = 4;
 }
 
-void Hexapod::set_leg_second_left(int coxa, int femur, int tibia)
+void Hexapod::set_leg_second_left(int p_coxa, int p_femur, int p_tibia)
 {
-    coxa_second_left = coxa;
-    femur_second_left = femur;
-    tibia_second_left = tibia;
+    p_coxa_second_left = p_coxa;
+    p_femur_second_left = p_femur;
+    p_tibia_second_left = p_tibia;
 }
 
-void Hexapod::set_leg_third_left(int coxa, int femur, int tibia)
+void Hexapod::set_leg_third_left(int p_coxa, int p_femur, int p_tibia)
 {
-    coxa_third_left = coxa;
-    femur_third_left = femur;
-    tibia_third_left = tibia;
+    p_coxa_third_left = p_coxa;
+    p_femur_third_left = p_femur;
+    p_tibia_third_left = p_tibia;
 }
 
-void Hexapod::set_leg_first_right(int coxa, int femur, int tibia)
+void Hexapod::set_leg_first_right(int p_coxa, int p_femur, int p_tibia)
 {
-    coxa_first_right = coxa;
-    femur_first_right = femur;
-    tibia_first_right = tibia;
+    p_coxa_first_right = p_coxa;
+    p_femur_first_right = p_femur;
+    p_tibia_first_right = p_tibia;
 }
 
-void Hexapod::set_leg_second_right(int coxa, int femur, int tibia)
+void Hexapod::set_leg_second_right(int p_coxa, int p_femur, int p_tibia)
 {
-    coxa_second_right = coxa;
-    femur_second_right = femur;
-    tibia_second_right = tibia;
+    p_coxa_second_right = p_coxa;
+    p_femur_second_right = p_femur;
+    p_tibia_second_right = p_tibia;
 }
 
-void Hexapod::set_leg_third_right(int coxa, int femur, int tibia)
+void Hexapod::set_leg_third_right(int p_coxa, int p_femur, int p_tibia)
 {
-    coxa_third_right = coxa;
-    femur_third_right = femur;
-    tibia_third_right = tibia;
+    p_coxa_third_right = p_coxa;
+    p_femur_third_right = p_femur;
+    p_tibia_third_right = p_tibia;
 }
 
 void Hexapod::Init()
 {
-  leg_first_left = new Leg(coxa_first_left, femur_first_left, tibia_first_left);
-  leg_second_left = new Leg(coxa_second_left, femur_second_left, tibia_second_left);
-  leg_third_left = new Leg(coxa_third_left, femur_third_left, tibia_third_left);
-  leg_first_right = new Leg(coxa_first_right, femur_first_right, tibia_first_right);
-  leg_second_right = new Leg(coxa_second_right, femur_second_right, tibia_second_right);
-  leg_third_right = new Leg(coxa_third_right, femur_third_right, tibia_third_right);
+  this->leg_first_left = new Leg(p_coxa_first_left, p_femur_first_left, p_tibia_first_left);
+  this->leg_second_left = new Leg(p_coxa_second_left, p_femur_second_left, p_tibia_second_left);
+  this->leg_third_left = new Leg(p_coxa_third_left, p_femur_third_left, p_tibia_third_left);
+  this->leg_first_right = new Leg(p_coxa_first_right, p_femur_first_right, p_tibia_first_right);
+  this->leg_second_right = new Leg(p_coxa_second_right, p_femur_second_right, p_tibia_second_right);
+  this->leg_third_right = new Leg(p_coxa_third_right, p_femur_third_right, p_tibia_third_right);
+}
+
+void Hexapod::Walk()
+{
+  leg_first_left->Move();
+  delay(100);
+  leg_first_left->set_coxa_angle(10);
+  leg_first_left->Move();
+  delay(100);
 }
